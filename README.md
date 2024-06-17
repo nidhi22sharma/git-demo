@@ -1,3 +1,32 @@
+Error Rate
+
+Description: Measures the percentage of failed transactions.
+Formula: (Number of failed transactions / Total transactions) x 100
+Recommendation: Optional
+
+Vulnerability Density
+
+Description: Measures the number of vulnerabilities per unit size of the software.
+Formula: Number of vulnerabilities / Size of the software module
+Recommendation: Optional
+
+Security Defects
+
+Description: Counts the number of security-related defects identified during testing.
+Formula: Number of security defects
+Recommendation: Optional
+
+Task Completion Rate
+
+Description: Measures the percentage of tasks successfully completed by users.
+Formula: (Number of tasks completed successfully / Total number of tasks) x 100
+Recommendation: Optional
+
+Error Rate (Usability)
+
+Description: Measures the number of errors made by users while performing tasks.
+Formula: Total errors / Total tasks performed
+Recommendation: Optional
 
 ### Non-Functional Testing Metrics
 
