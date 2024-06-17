@@ -1,242 +1,318 @@
-### Defect Leakage
 
-**Description**: Measures the percentage of defects that escape from one phase of testing to the next phase or into production.
+### Non-Functional Testing Metrics
+
+### Transaction Time per Second
+
+**Description**: Measures the average time taken to complete a transaction per second.
 
 **Formula**:
 ```
-Defect Leakage = (Number of Defects Found in Later Phases / Total Number of Defects) x 100
+Transaction Time per Second = Total Transaction Time / Number of Transactions per Second
 ```
 
 **Recommendation**: Recommended
 
-**Duplication or Redundancy**: This metric is unique and not redundant, as it specifically tracks the effectiveness of testing phases in catching defects before they move to the next phase or production.
+**Duplication or Redundancy**: Unique, measures the efficiency of transaction processing.
 
+### Response Time
 
-
-### Fixed Defect Rate
-
-**Description**: Measures the percentage of reported defects that have been fixed.
+**Description**: Measures the time taken to receive a response for a request.
 
 **Formula**:
 ```
-Fixed Defect Rate = (Number of Fixed Defects / Total Number of Reported Defects) x 100
+Response Time = Total Response Time / Number of Requests
 ```
 
 **Recommendation**: Recommended
 
-**Duplication or Redundancy**: This metric is unique and not redundant, as it specifically tracks the efficiency of fixing reported defects.
+**Duplication or Redundancy**: Unique, critical for performance testing.
 
-### Accepted Defect Rate
+### Time to Complete Operation
 
-**Description**: Measures the percentage of reported defects that are accepted by stakeholders.
-
-**Formula**:
-```
-Accepted Defect Rate = (Number of Accepted Defects / Total Number of Reported Defects) x 100
-```
-
-**Recommendation**: Optional
-
-**Duplication or Redundancy**: This metric is unique and not redundant, focusing on stakeholder acceptance of reported defects.
-
-### Deferred Defect Rate
-
-**Description**: Measures the percentage of reported defects that are deferred for future releases.
+**Description**: Measures the total time taken to complete a specific operation.
 
 **Formula**:
 ```
-Deferred Defect Rate = (Number of Deferred Defects / Total Number of Reported Defects) x 100
-```
-
-**Recommendation**: Optional
-
-**Duplication or Redundancy**: This metric is unique and not redundant, focusing on defects postponed for future consideration.
-
-### Critical Defect Rate
-
-**Description**: Measures the percentage of critical defects out of the total reported defects.
-
-**Formula**:
-```
-Critical Defect Rate = (Number of Critical Defects / Total Number of Reported Defects) x 100
+Time to Complete Operation = End Time - Start Time
 ```
 
 **Recommendation**: Recommended
 
-**Duplication or Redundancy**: This metric is unique and not redundant, specifically tracking high-severity defects.
+**Duplication or Redundancy**: Unique, essential for evaluating operation efficiency.
 
-### Average Time to Repair Defects
+### Time to Interact (Speed Index)
 
-**Description**: Measures the average time taken to repair defects.
+**Description**: Measures the time until the user can start interacting with the system.
 
 **Formula**:
 ```
-Average Time to Repair = Total Time to Repair All Defects / Total Number of Defects
+Time to Interact = Time when Page is Usable - Start Time
 ```
 
 **Recommendation**: Recommended
 
-**Duplication or Redundancy**: This metric is unique and not redundant, focusing on the efficiency of defect resolution.
+**Duplication or Redundancy**: Unique, important for user experience evaluation.
 
-### Number of Test Runs per Time Period
+### Main Memory Usage
 
-**Description**: Measures the number of test runs executed within a specific time period.
-
-**Formula**:
-```
-Number of Test Runs = Total Number of Test Runs / Time Period
-```
-
-**Recommendation**: Optional
-
-**Duplication or Redundancy**: This metric is unique and not redundant, tracking the volume of test executions over time.
-
-### Test Design Efficiency
-
-**Description**: Measures the efficiency of the test design process.
+**Description**: Measures the amount of main memory used during operation.
 
 **Formula**:
 ```
-Test Design Efficiency = (Number of Defects Detected / Number of Test Cases Designed) x 100
-```
-
-**Recommendation**: Optional
-
-**Duplication or Redundancy**: This metric is unique and not redundant, focusing on the effectiveness of test design in detecting defects.
-
-### Test Review Efficiency
-
-**Description**: Measures the efficiency of test case reviews.
-
-**Formula**:
-```
-Test Review Efficiency = (Number of Test Cases Reviewed / Total Number of Test Cases) x 100
-```
-
-**Recommendation**: Optional
-
-**Duplication or Redundancy**: This metric is unique and not redundant, focusing on the review process of test cases.
-
-### Defect Density
-
-**Description**: Measures the number of defects per unit size of the software module.
-
-**Formula**:
-```
-Defect Density = Number of Defects / Size of the Software Module (e.g., KLOC - Thousand Lines of Code)
+Main Memory Usage = Amount of Main Memory Used
 ```
 
 **Recommendation**: Recommended
 
-**Duplication or Redundancy**: This metric is unique and not redundant, tracking the defect rate relative to the software size.
+**Duplication or Redundancy**: Unique, crucial for performance and resource management.
 
-### Test Coverage
+### Auxiliary Memory Usage
 
-**Description**: Measures the percentage of code or functionality tested.
+**Description**: Measures the amount of auxiliary memory (e.g., disk space) used during operation.
 
 **Formula**:
 ```
-Test Coverage = (Number of Items Tested / Total Number of Items) x 100
+Auxiliary Memory Usage = Amount of Auxiliary Memory Used
 ```
 
 **Recommendation**: Recommended
 
-**Duplication or Redundancy**: This metric is unique and not redundant, providing a measure of testing completeness.
+**Duplication or Redundancy**: Unique, essential for evaluating resource utilization.
 
-### Test Automation Coverage
+### Training Time
 
-**Description**: Measures the percentage of test cases that are automated.
+**Description**: Measures the time required to train users or systems.
 
 **Formula**:
 ```
-Test Automation Coverage = (Number of Automated Test Cases / Total Number of Test Cases) x 100
+Training Time = Total Time Spent on Training
 ```
 
 **Recommendation**: Optional
 
-**Duplication or Redundancy**: This metric is unique and not redundant, focusing on the extent of test automation.
+**Duplication or Redundancy**: Unique, relevant for systems requiring user training.
 
-### Test Execution Time
+### Number of Choices (Ease of Usability)
 
-**Description**: Measures the total time taken to execute test cases.
+**Description**: Measures the number of choices or options presented to the user, affecting ease of use.
 
 **Formula**:
 ```
-Test Execution Time = Total Time Spent Executing Test Cases
+Number of Choices = Total Number of User Options
 ```
 
 **Recommendation**: Optional
 
-**Duplication or Redundancy**: This metric is unique and not redundant, focusing on the duration of test execution.
+**Duplication or Redundancy**: Unique, important for usability testing.
 
-### Defect Severity Distribution
+### Mouse Clicks
 
-**Description**: Categorizes defects based on their severity levels.
+**Description**: Measures the number of mouse clicks required to complete a task.
 
 **Formula**:
 ```
-Defect Severity Distribution = (Number of Defects in Each Category / Total Number of Defects) x 100
+Mouse Clicks = Total Number of Clicks for a Task
+```
+
+**Recommendation**: Optional
+
+**Duplication or Redundancy**: Unique, relevant for usability and efficiency.
+
+### Downtime Probability
+
+**Description**: Measures the probability of system downtime.
+
+**Formula**:
+```
+Downtime Probability = (Total Downtime / Total Operation Time) x 100
 ```
 
 **Recommendation**: Recommended
 
-**Duplication or Redundancy**: This metric is unique and not redundant, tracking the distribution of defects by severity.
+**Duplication or Redundancy**: Unique, critical for reliability assessment.
 
-### Test Case Effectiveness
+### Availability
 
-**Description**: Measures the effectiveness of test cases in detecting defects.
-
-**Formula**:
-```
-Test Case Effectiveness = (Number of Defects Detected by Test Cases / Total Number of Defects Detected) x 100
-```
-
-**Recommendation**: Optional
-
-**Duplication or Redundancy**: This metric is unique and not redundant, focusing on the ability of test cases to find defects.
-
-### Requirement Coverage
-
-**Description**: Ensures that all requirements are covered by test cases.
+**Description**: Measures the percentage of time the system is operational and accessible.
 
 **Formula**:
 ```
-Requirement Coverage = (Number of Requirements Covered by Test Cases / Total Number of Requirements) x 100
+Availability = (Uptime / Total Time) x 100
 ```
 
 **Recommendation**: Recommended
 
-**Duplication or Redundancy**: This metric is unique and not redundant, ensuring completeness in requirement coverage.
+**Duplication or Redundancy**: Unique, essential for service level agreements.
 
-### Defect Removal Efficiency
+### Mean Time to Failure (MTTF)
 
-**Description**: Measures the percentage of defects found and removed before release.
+**Description**: Measures the average time between failures.
 
 **Formula**:
 ```
-Defect Removal Efficiency = (Number of Defects Found and Removed / Total Number of Defects) x 100
+MTTF = Total Operating Time / Number of Failures
 ```
 
 **Recommendation**: Recommended
 
-**Duplication or Redundancy**: This metric is unique and not redundant, focusing on the effectiveness of defect removal.
+**Duplication or Redundancy**: Unique, important for reliability metrics.
 
-### Defect Rejection Rate
+### Mean Time Between Failures (MTBF)
 
-**Description**: Measures the percentage of rejected defect reports.
+**Description**: Measures the average time between failures and includes repair time.
 
 **Formula**:
 ```
-Defect Rejection Rate = (Number of Rejected Defects / Total Number of Reported Defects) x 100
+MTBF = MTTF + MTTR
+```
+
+**Recommendation**: Recommended
+
+**Duplication or Redundancy**: Unique, crucial for reliability and maintenance planning.
+
+### Probability of Failure on Demand (POFOD)
+
+**Description**: Measures the probability that a system will fail when a demand is made.
+
+**Formula**:
+```
+POFOD = (Number of Failures / Number of Demands) x 100
 ```
 
 **Recommendation**: Optional
 
-**Duplication or Redundancy**: This metric is unique and not redundant, focusing on the quality of defect reports.
+**Duplication or Redundancy**: Unique, relevant for high-reliability systems.
+
+### Time to Recovery
+
+**Description**: Measures the time taken to recover from a failure.
+
+**Formula**:
+```
+Time to Recovery = Total Recovery Time / Number of Failures
+```
+
+**Recommendation**: Recommended
+
+**Duplication or Redundancy**: Unique, important for disaster recovery planning.
+
+### Percentage of Incidents Leading to Catastrophic Failure
+
+**Description**: Measures the percentage of incidents that result in a catastrophic failure.
+
+**Formula**:
+```
+Percentage of Catastrophic Failures = (Number of Catastrophic Failures / Total Number of Incidents) x 100
+```
+
+**Recommendation**: Optional
+
+**Duplication or Redundancy**: Unique, crucial for risk management.
+
+### Data Corruption Probability
+
+**Description**: Measures the probability of data corruption occurring.
+
+**Formula**:
+```
+Data Corruption Probability = (Number of Data Corruptions / Total Data Transactions) x 100
+```
+
+**Recommendation**: Optional
+
+**Duplication or Redundancy**: Unique, important for data integrity assessment.
+
+### Number of Target Systems
+
+**Description**: Measures the number of systems the software is deployed on.
+
+**Formula**:
+```
+Number of Target Systems = Total Number of Systems Deployed
+```
+
+**Recommendation**: Optional
+
+**Duplication or Redundancy**: Unique, relevant for deployment and scalability.
+
+### Throughput
+
+**Description**: Measures the number of transactions processed per unit of time.
+
+**Formula**:
+```
+Throughput = Total Transactions / Total Time
+```
+
+**Recommendation**: Recommended
+
+**Duplication or Redundancy**: Unique, critical for performance testing.
+
+### Load Time
+
+**Description**: Measures the time taken to load a system or application.
+
+**Formula**:
+```
+Load Time = Time Taken to Load System
+```
+
+**Recommendation**: Optional
+
+**Duplication or Redundancy**: Unique, important for performance evaluation.
+
+### Resource Utilization
+
+**Description**: Measures the percentage of system resources used during operation.
+
+**Formula**:
+```
+Resource Utilization = (Resources Used / Total Available Resources) x 100
+```
+
+**Recommendation**: Recommended
+
+**Duplication or Redundancy**: Unique, crucial for performance and capacity planning.
+
+### Browser Compatibility
+
+**Description**: Measures the software's compatibility across different browsers.
+
+**Formula**:
+```
+Browser Compatibility = Number of Supported Browsers / Total Number of Major Browsers x 100
+```
+
+**Recommendation**: Optional
+
+**Duplication or Redundancy**: Unique, relevant for web applications.
+
+### Scalability
+
+**Description**: Measures the ability of the system to handle increased load.
+
+**Formula**:
+```
+Scalability = Performance at High Load / Performance at Normal Load
+```
+
+**Recommendation**: Recommended
+
+**Duplication or Redundancy**: Unique, essential for capacity planning.
+
+### Maintainability
+
+**Description**: Measures the ease with which a system can be maintained.
+
+**Formula**:
+```
+Maintainability = Total Maintenance Time / Total Operating Time x 100
+```
+
+**Recommendation**: Optional
+
+**Duplication or Redundancy**: Unique, important for long-term system management.
 
 ---
 
-This should provide a comprehensive list of metrics with descriptions, formulas, and recommendations, ensuring no redundancy and providing clear, actionable insights.
-
-
-
+This comprehensive list includes detailed descriptions, formulas, and recommendations for each non-functional testing metric, ensuring that each metric is properly categorized and relevant.
