@@ -1,117 +1,242 @@
-# git-Functional Testing Metrics
-Mandatory Metrics
-Metric	Description	Formula	Example	Best Practices	Common Pitfalls	Recommendation
-Test Case Preparation Status	Measures the progress of test case preparation.	(Number of test cases prepared / Total number of planned test cases) x 100	80 out of 100 planned test cases prepared: 80%	Ensure test cases are reviewed and approved before execution.<br>Regularly update the test case repository.	Lack of detailed steps in test cases.<br>Inadequate test case coverage.	Recommended
-Test Case Execution Status	Tracks the progress of test case execution.	(Number of test cases executed / Total number of test cases) x 100	50 out of 100 test cases executed: 50%	Execute test cases in priority order.<br>Log execution results promptly and accurately.	Delayed execution due to environmental issues.<br>Inconsistent test case execution.	Recommended
-Defect Detection Rate	Measures the number of defects detected during a specific period.	Number of defects detected / Total test cases executed	20 defects out of 100 test cases executed: 0.2 or 20%	Conduct regular defect triage meetings.<br>Prioritize defect fixing based on severity and impact.	Inconsistent defect reporting.<br>Ignoring low-severity defects.	Recommended
-Requirement Coverage	Ensures that all requirements are covered by test cases.	(Number of requirements covered by test cases / Total number of requirements) x 100	40 out of 50 requirements covered: 80%	Map each requirement to one or more test cases.<br>Regularly update the requirement coverage matrix.	Missing out on non-functional requirements.<br>Incomplete mapping of requirements to test cases.	Recommended
-Pass Rate	Measures the percentage of test cases that passed out of the total executed.	(Number of test cases passed / Total number of test cases executed) x 100	70 out of 100 executed test cases passed: 70%	Focus on improving the pass rate through targeted testing.<br>Investigate and resolve the root causes of failed test cases.	Ignoring test cases that intermittently fail.<br>Not differentiating between critical and non-critical failures.	Recommended
-Fail Rate	Measures the percentage of test cases that failed out of the total executed.	(Number of test cases failed / Total number of test cases executed) x 100	20 out of 100 executed test cases failed: 20%	Analyze and categorize failures to prioritize fixes.<br>Track and monitor the fail rate over different builds.	Overlooking minor failures.<br>Not maintaining a history of failure trends.	Recommended
-Optional Metrics
-Metric	Description	Formula	Example	Best Practices	Common Pitfalls	Recommendation
-Defect Severity Distribution	Categorizes defects based on their severity (Critical, Major, Minor).	(Number of defects in each category / Total number of defects) x 100	10 critical, 15 major, and 25 minor defects out of 50: 20% critical, 30% major, 50% minor	Use a standardized severity classification.<br>Ensure proper communication of defect severity to stakeholders.	Misclassification of defects.<br>Overlooking minor defects that may accumulate.	Optional
-Defect Density	Indicates the number of defects per unit size of the software module.	Number of defects / Size of the software module (e.g., KLOC - Thousand Lines of Code)	10 defects in a module of 5 KLOC: 2 defects per KLOC	Focus on modules with high defect density for refactoring.<br>Perform root cause analysis on frequent defect-prone areas.	Ignoring defect density trends over time.<br>Not correlating defect density with changes in the codebase.	Optional
-Test Case Effectiveness	Measures the effectiveness of test cases in detecting defects.	(Number of defects detected by test cases / Total number of defects detected) x 100	30 out of 40 detected defects found by test cases: 75%	Regularly review and update test cases based on defect analysis.<br>Ensure test cases cover both positive and negative scenarios.	Relying solely on automated test cases.<br>Not updating test cases with new learning from defects.	Optional
-Blocked Test Cases	Counts the number of test cases that could not be executed due to blocking issues.	Number of blocked test cases	10 blocked test cases	Identify and resolve blockers promptly.<br>Maintain a list of common blockers and their resolutions.	Not tracking the reasons for blocked test cases.<br>Allowing blockers to persist without escalation.	Optional
-Non-Functional Testing Metrics
-Optional Metrics
-Metric	Description	Formula	Example	Best Practices	Common Pitfalls	Recommendation
-Response Time	Measures the time taken to receive a response for a request.	Total response time / Number of requests	Total response time for 100 requests is 500 seconds: 5 seconds average	Set performance benchmarks based on user expectations.<br>Regularly test response times under different loads.	Not considering network latency in response time measurements.<br>Ignoring spikes in response times.	Optional
-Throughput	Measures the number of transactions processed per unit of time.	Total transactions / Total time	1000 transactions in 60 minutes: 16.67 transactions per minute	Test throughput at different load levels.<br>Monitor throughput trends over time.	Not simulating real-world load conditions.<br>Ignoring throughput drops during peak usage.	Optional
-Error Rate	Measures the percentage of failed transactions.	(Number of failed transactions / Total transactions) x 100	50 out of 1000 transactions fail: 5%	Investigate and resolve the causes of errors.<br>Implement error handling and retry mechanisms.	Not differentiating between transient and persistent errors.<br>Ignoring errors that occur under high load.	Optional
-Vulnerability Density	Measures the number of vulnerabilities per unit size of the software.	Number of vulnerabilities / Size of the software module	20 vulnerabilities in a module of 5 KLOC: 4 vulnerabilities per KLOC	Regularly conduct security audits and penetration tests.<br>Prioritize fixing high-severity vulnerabilities.	Ignoring low-severity vulnerabilities.<br>Not correlating vulnerability density with code changes.	Optional
-Security Defects	Counts the number of security-related defects identified during testing.	Number of security defects	10 security defects identified	Use automated security testing tools.<br>Conduct code reviews focusing on security vulnerabilities.	Not integrating security testing into the development process.<br>Overlooking security defects in third-party libraries.	Optional
-Task Completion Rate	Measures the percentage of tasks successfully completed by users.	(Number of tasks completed successfully / Total number of tasks) x 100	Users complete 45 out of 50 tasks successfully: 90%	Conduct usability testing with real users.<br>Gather feedback and iterate on design improvements.	Ignoring user feedback.<br>Not testing with a diverse user group.	Optional
-Error Rate	Measures the number of errors made by users while performing tasks.	Total errors / Total tasks performed	Users make 5 errors while performing 50 tasks: 10%	Provide clear and concise user instructions.<br>Design intuitive user interfaces.	Overlooking minor usability issues.<br>Not addressing repetitive errors.	Optional
-User Satisfaction	Measures user satisfaction based on surveys or feedback.	Total satisfaction score / Number of respondents	Total satisfaction score from 10 respondents is 80: average score 8	Regularly gather user feedback.<br>Act on user feedback to improve the application.	Ignoring negative feedback.<br>Not following up with dissatisfied users.	Optional
-Tools and Techniques for Collecting Metrics
-* Test Management Tools: JIRA, TestRail, Quality Center
-* Automated Testing Tools: Selenium, LoadRunner, JMeter
-* Security Testing Tools: OWASP ZAP, Burp Suite
-* Usability Testing Tools: UserTesting, Lookback
-Templates for Reporting Metrics
-Test Case Preparation and Execution Template
-sql
-Copy code
-| Metric                     | Planned | Completed | Percentage |
-|----------------------------|---------|-----------|------------|
-| Test Case Preparation      | 100     | 80        | 80%        |
-| Test Case Execution        | 100     | 50        | 50%        |
-Defect Metrics Template
-lua
-Copy code
-| Severity   | Count | Percentage |
-|------------|-------|------------|
-| Critical   | 10    | 20%        |
-| Major      | 15    | 30%        |
-| Minor      | 25    | 50%        |
-Conclusion
-This document outlines the key metrics that should be monitored to ensure the effectiveness and efficiency of the testing process. By adhering to these metrics, we can achieve a high level of quality assurance, meet organizational objectives, and continuously improve our testing practices. All teams are expected to follow these guidelines and regularly report their metrics to maintain consistency and transparency across the organization.
+### Defect Leakage
+
+**Description**: Measures the percentage of defects that escape from one phase of testing to the next phase or into production.
+
+**Formula**:
+```
+Defect Leakage = (Number of Defects Found in Later Phases / Total Number of Defects) x 100
+```
+
+**Recommendation**: Recommended
+
+**Duplication or Redundancy**: This metric is unique and not redundant, as it specifically tracks the effectiveness of testing phases in catching defects before they move to the next phase or production.
 
 
 
-Functional Testing Metrics
-Category	Metrics	Description	Derivation	How to use in Jira	Recommended/Optional
-Effort and Schedule	Rework Effort Ratio	Measures the effort spent on reworking compared to the total effort in a given phase. This helps in identifying the phases where most rework is required.	(Actual rework effort spent in that phase/total actual effort spent in that phase) * 100	Track the actual rework hours in Jira and compare it with the total hours spent in that phase.	Recommended
-	Requirement Creep	Indicates the increase in requirements over the initial number of requirements, showing how much the scope has expanded.	(Total number of requirements added/No of initial requirements) * 100	Log new requirements in Jira and compare them to the original count to measure scope changes.	Recommended
-	Schedule Variance	Measures the deviation from the planned schedule, helping in identifying delays and planning corrective actions.	(Actual Date of Delivery – Planned Date of Delivery)	Use Jira's scheduling and timeline features to track planned vs. actual delivery dates.	Recommended
-	Schedule Slippage	Indicates the delay in schedule by comparing the actual end date to the estimated end date.	(Actual end date – Estimated end date) / (Planned end date – Planned start date) * 100	Update the planned and actual dates in Jira to calculate the slippage percentage.	Recommended
-Test Execution	% Test cases executed	Shows the percentage of test cases that have been executed out of the total planned, indicating test progress.	(No of test cases executed/Total no of test cases written) * 100	Track the execution status of test cases in Jira to get the percentage of executed tests.	Recommended
-	Passed Test Cases %	The percentage of test cases that passed out of the total executed, indicating the success rate of the tests.	(Number of Passed Tests/Total number of tests executed) * 100	Update the status of test cases in Jira to calculate the percentage of passed tests.	Recommended
-	Failed Test Cases %	The percentage of test cases that failed out of the total executed, indicating areas needing improvement.	(Number of Failed Tests/Total number of tests executed) * 100	Update the status of test cases in Jira to calculate the percentage of failed tests.	Recommended
-	Blocked Test Cases %	The percentage of test cases that are blocked and cannot proceed, highlighting issues that need resolution.	(Number of Blocked Tests/Total number of tests executed) * 100	Track the blocked test cases in Jira to get the percentage of blocked tests.	Recommended
-Defect Management	Fixed Defects %	Measures the percentage of defects that have been fixed out of the total reported, indicating the efficiency of defect resolution.	(Defects Fixed/Defects Reported) * 100	Update the status of defects in Jira to track the percentage of fixed defects.	Recommended
-	Accepted Defects %	The percentage of defects accepted as valid by the development team out of the total reported, indicating defect validation efficiency.	(Defects Accepted as Valid by Dev Team/Total Defects Reported) * 100	Track the defects accepted by the development team in Jira to calculate the percentage of accepted defects.	Recommended
-	Defects Deferred %	The percentage of defects deferred for future releases out of the total reported, indicating postponed issues.	(Defects deferred for future releases/Total Defects Reported) * 100	Mark the deferred defects in Jira to track the percentage of deferred defects.	Recommended
-	Critical Defects %	The percentage of critical defects out of the total reported, indicating the severity of issues found.	(Critical Defects / Total Defects Reported) * 100	Track the critical defects in Jira to calculate the percentage of critical defects.	Recommended
-	Average time to repair defects	Measures the average time taken to repair defects, indicating the efficiency of the defect resolution process.	(Total time taken for bugfixes/Number of bugs)	Use Jira to log the time taken to fix each defect and calculate the average repair time.	Recommended
-Test Process Efficiency	Tests run per time period	Indicates the number of tests run in a given time period, helping in assessing testing throughput.	Number of tests run/Total time	Track the number of tests executed over a specific period in Jira.	Recommended
-	Test design efficiency	Measures the efficiency of the test design process by comparing the number of tests designed to the total time spent.	Number of tests designed/Total Time	Log the time spent on test design in Jira and compare it to the number of tests created.	Optional
-	Test review efficiency	Indicates the efficiency of the test review process by comparing the number of tests reviewed to the total time spent.	Number of tests reviewed/Total time	Track the time spent on reviewing tests in Jira and compare it to the number of tests reviewed.	Optional
-	Defect Density	Measures the number of defects found per size of the application (e.g., lines of code), indicating the quality of the code.	Number of Defects/Size of Application (e.g., Lines of Code)	Track the number of defects and the size of the application in Jira to calculate defect density.	Optional
-	Test Coverage	Indicates the extent of testing by comparing the number of units tested to the total units, ensuring all parts are tested.	(Number of Units tested / Total Units) * 100	Use Jira to track the coverage of testing activities across all units.	Optional
-	Defect Removal Efficiency	Measures the efficiency in removing defects by comparing the number of defects removed to the total number of defects.	(Number of Defects Removed / Total Number of Defects) * 100	Track defect removal activities in Jira to calculate removal efficiency.	Optional
-	Mean Time to Detect (MTTD)	The average time taken to detect a defect from the time it was introduced, indicating detection efficiency.	Total time from introduction of a defect to its detection / Total number of defects	Use Jira to log the time from defect introduction to detection and calculate the average detection time.	Optional
-	Mean Time to Resolve (MTTR)	The average time taken to resolve a defect from the time it was detected, indicating resolution efficiency.	Total time from detection to resolution of a defect / Total number of defects	Track the resolution time for defects in Jira to calculate the average resolution time.	Optional
-	Defect Leakage	The percentage of defects that escaped to production out of the total defects, indicating testing effectiveness.	(Number of Defects found in production/Total Number of Defects) * 100	Track the defects found in production in Jira to calculate defect leakage.	Optional
-	Customer-Reported Defects	The number of defects reported by customers, indicating the quality of the product released to customers.	Number of defects reported by customers	Log customer-reported defects in Jira to monitor the quality of released products.	Optional
-	Test Automation Coverage	The percentage of test cases that are automated out of the total test cases, indicating the extent of automation.	(Number of Automated Test Cases/Total Test Cases) * 100	Track automated test cases in Jira to calculate automation coverage.	Optional
-	Test Execution Time	The total time taken to execute all test cases, indicating the efficiency of the test execution process.	Total time taken to execute all test cases	Use Jira to log the time taken to execute each test case and calculate the total execution time.	Optional
-	Defect Severity Distribution	The distribution of defects by severity, indicating the criticality of issues found during testing.	Distribution of defects across severity levels	Track defect severity levels in Jira to monitor the distribution of defects by their criticality.	Optional
-Non-Functional Testing Metrics
-Category	Metrics	Description	Derivation	How to use in Jira	Recommended/Optional
-Performance	Response Time	Measures the time taken for the system to respond to a request.	Time taken from sending a request to receiving a response	Log response times for various requests in Jira to monitor performance trends.	Recommended
-	Throughput	The number of transactions processed by the system in a given period.	Total number of transactions/Total time	Track the number of transactions processed over time in Jira to calculate throughput.	Recommended
-	Load Time	The time taken for the application to load and become usable.	Time taken from launching the application to it becoming usable	Use Jira to record the load times of the application under different conditions.	Recommended
-Resource Utilization	Memory Usage	The amount of memory used by the application.	Amount of memory consumed by the application	Track memory usage statistics in Jira to monitor and optimize application performance.	Recommended
-	CPU Utilization	Measures the percentage of CPU resources used by the application.	(CPU time used/Total CPU time available) * 100	Track CPU usage statistics in Jira to ensure efficient resource utilization.	Recommended
-	Disk Usage	The amount of disk space used by the application.	Amount of disk space consumed by the application	Log disk usage data in Jira to ensure efficient use of storage resources.	Recommended
-	Network Utilization	The amount of network bandwidth used by the application.	Amount of data transmitted/Total time	Monitor network bandwidth usage in Jira to optimize application performance and reduce costs.	Recommended
-Ease of Use/Usability	User Satisfaction	Measures how satisfied users are with the application.	User feedback scores/Total number of feedback responses	Use Jira to collect and analyze user feedback to measure satisfaction levels.	Recommended
-	Task Completion Rate	The percentage of tasks completed successfully by users.	(Number of successfully completed tasks/Total number of tasks) * 100	Track task completion data in Jira to assess usability and identify areas for improvement.	Recommended
-	Error Rate	The percentage of errors encountered by users.	(Number of errors encountered by users/Total number of interactions) * 100	Log user-reported errors in Jira to monitor and reduce the error rate.	Recommended
-Reliability	Uptime	The percentage of time the application is available and operational.	(Total operational time/Total time) * 100	Track uptime metrics in Jira to ensure high availability of the application.	Recommended
-	Mean Time Between Failures (MTBF)	The average time between system failures, indicating reliability.	Total operational time/Number of failures	Log failure incidents and operational time in Jira to calculate MTBF.	Recommended
-	Mean Time to Recover (MTTR)	The average time taken to recover from a failure.	Total downtime/Number of failures	Track downtime and recovery efforts in Jira to calculate MTTR.	Recommended
-Robustness	Failure Rate	The frequency of failures occurring in the system.	(Number of failures/Total operational time) * 100	Monitor failure incidents in Jira to measure and reduce the failure rate.	Recommended
-	Stress Testing Results	Measures how the system performs under extreme conditions.	Performance metrics under maximum load conditions	Record stress testing results in Jira to evaluate system robustness.	Recommended
-	Security Vulnerabilities	The number of security vulnerabilities identified.	Number of identified vulnerabilities	Track security vulnerability findings in Jira to ensure robust security measures.	Recommended
-Profitability	Cost per Transaction	Measures the cost associated with processing each transaction.	Total cost/Number of transactions	Log cost and transaction data in Jira to calculate and optimize the cost per transaction.	Optional
-	Return on Investment (ROI)	The financial return on the investment made in the application.	(Net profit/Total investment) * 100	Use financial data and performance metrics in Jira to calculate ROI.	Optional
-	Customer Retention Rate	The percentage of customers retained over a period, indicating profitability and customer satisfaction.	(Number of retained customers/Total number of customers) * 100	Track customer data in Jira to measure and improve retention rates.	Optional
-Compatibility	Cross-Browser Compatibility	Measures how well the application performs across different web browsers.	Number of supported browsers/Total number of tested browsers	Log compatibility testing results in Jira to ensure cross-browser functionality.	Recommended
-	Cross-Platform Compatibility	Indicates how well the application performs across different operating systems and devices.	Number of supported platforms/Total number of tested platforms	Track platform compatibility testing results in Jira to ensure consistent performance across environments.	Recommended
-Scalability	Scalability Testing Results	Measures the application's ability to scale up or down based on demand.	Performance metrics under varying load conditions	Record scalability testing results in Jira to ensure the application can handle increased load.	Recommended
-Maintainability	Code Maintainability Index	Indicates how easy it is to maintain the application's code.	Based on code complexity, readability, and documentation	Use code analysis tools and log maintainability scores in Jira to monitor code quality.	Recommended
-	Mean Time to Identify (MTTI)	The average time taken to identify the root cause of a defect.	Total time to identify root causes/Total number of defects	Track defect identification times in Jira to calculate MTTI and improve maintenance processes.	Recommended
-Accessibility	Accessibility Compliance	Measures the application's compliance with accessibility standards (e.g., WCAG).	Compliance score based on accessibility audits	Use accessibility testing tools and log compliance scores in Jira to ensure adherence to standards.	Recommended
-Portability	Installation Time	The time taken to install the application in different environments.	Total installation time	Record installation times across environments in Jira to measure portability.	Recommended
-	Configuration Effort	The effort required to configure the application in different environments.	Total configuration effort	Log configuration efforts in Jira to evaluate the ease of portability.	Recommended
-Test Automation	Test Automation Coverage	The percentage of non-functional test cases that are automated.	(Number of automated non-functional test cases/Total non-functional test cases) * 100	Track the automation of non-functional test cases in Jira to measure coverage and efficiency.	Recommended
-Resource Utilization	CPU Utilization	Measures the percentage of CPU resources used by the application.	(CPU time used/Total CPU time available) * 100	Monitor CPU usage statistics in Jira to ensure efficient resource utilization.	Recommended
-	Network Utilization	Measures the percentage of network resources used by the application.	(Network bandwidth used/Total network bandwidth available) * 100	Track network usage in Jira to optimize resource allocation and performance.	Recommended
-Energy Efficiency	Energy Consumption	The amount of energy consumed by the application during its operation.	Total energy consumed	Use energy monitoring tools and log consumption data in Jira to ensure energy efficiency and sustainability.	Optional
-This detailed table provides a structured approach for tracking and managing both functional and non-functional testing metrics, including their recommended or optional status. This should help ensure comprehensive coverage and continuous improvement in your software testing processes.
+### Fixed Defect Rate
+
+**Description**: Measures the percentage of reported defects that have been fixed.
+
+**Formula**:
+```
+Fixed Defect Rate = (Number of Fixed Defects / Total Number of Reported Defects) x 100
+```
+
+**Recommendation**: Recommended
+
+**Duplication or Redundancy**: This metric is unique and not redundant, as it specifically tracks the efficiency of fixing reported defects.
+
+### Accepted Defect Rate
+
+**Description**: Measures the percentage of reported defects that are accepted by stakeholders.
+
+**Formula**:
+```
+Accepted Defect Rate = (Number of Accepted Defects / Total Number of Reported Defects) x 100
+```
+
+**Recommendation**: Optional
+
+**Duplication or Redundancy**: This metric is unique and not redundant, focusing on stakeholder acceptance of reported defects.
+
+### Deferred Defect Rate
+
+**Description**: Measures the percentage of reported defects that are deferred for future releases.
+
+**Formula**:
+```
+Deferred Defect Rate = (Number of Deferred Defects / Total Number of Reported Defects) x 100
+```
+
+**Recommendation**: Optional
+
+**Duplication or Redundancy**: This metric is unique and not redundant, focusing on defects postponed for future consideration.
+
+### Critical Defect Rate
+
+**Description**: Measures the percentage of critical defects out of the total reported defects.
+
+**Formula**:
+```
+Critical Defect Rate = (Number of Critical Defects / Total Number of Reported Defects) x 100
+```
+
+**Recommendation**: Recommended
+
+**Duplication or Redundancy**: This metric is unique and not redundant, specifically tracking high-severity defects.
+
+### Average Time to Repair Defects
+
+**Description**: Measures the average time taken to repair defects.
+
+**Formula**:
+```
+Average Time to Repair = Total Time to Repair All Defects / Total Number of Defects
+```
+
+**Recommendation**: Recommended
+
+**Duplication or Redundancy**: This metric is unique and not redundant, focusing on the efficiency of defect resolution.
+
+### Number of Test Runs per Time Period
+
+**Description**: Measures the number of test runs executed within a specific time period.
+
+**Formula**:
+```
+Number of Test Runs = Total Number of Test Runs / Time Period
+```
+
+**Recommendation**: Optional
+
+**Duplication or Redundancy**: This metric is unique and not redundant, tracking the volume of test executions over time.
+
+### Test Design Efficiency
+
+**Description**: Measures the efficiency of the test design process.
+
+**Formula**:
+```
+Test Design Efficiency = (Number of Defects Detected / Number of Test Cases Designed) x 100
+```
+
+**Recommendation**: Optional
+
+**Duplication or Redundancy**: This metric is unique and not redundant, focusing on the effectiveness of test design in detecting defects.
+
+### Test Review Efficiency
+
+**Description**: Measures the efficiency of test case reviews.
+
+**Formula**:
+```
+Test Review Efficiency = (Number of Test Cases Reviewed / Total Number of Test Cases) x 100
+```
+
+**Recommendation**: Optional
+
+**Duplication or Redundancy**: This metric is unique and not redundant, focusing on the review process of test cases.
+
+### Defect Density
+
+**Description**: Measures the number of defects per unit size of the software module.
+
+**Formula**:
+```
+Defect Density = Number of Defects / Size of the Software Module (e.g., KLOC - Thousand Lines of Code)
+```
+
+**Recommendation**: Recommended
+
+**Duplication or Redundancy**: This metric is unique and not redundant, tracking the defect rate relative to the software size.
+
+### Test Coverage
+
+**Description**: Measures the percentage of code or functionality tested.
+
+**Formula**:
+```
+Test Coverage = (Number of Items Tested / Total Number of Items) x 100
+```
+
+**Recommendation**: Recommended
+
+**Duplication or Redundancy**: This metric is unique and not redundant, providing a measure of testing completeness.
+
+### Test Automation Coverage
+
+**Description**: Measures the percentage of test cases that are automated.
+
+**Formula**:
+```
+Test Automation Coverage = (Number of Automated Test Cases / Total Number of Test Cases) x 100
+```
+
+**Recommendation**: Optional
+
+**Duplication or Redundancy**: This metric is unique and not redundant, focusing on the extent of test automation.
+
+### Test Execution Time
+
+**Description**: Measures the total time taken to execute test cases.
+
+**Formula**:
+```
+Test Execution Time = Total Time Spent Executing Test Cases
+```
+
+**Recommendation**: Optional
+
+**Duplication or Redundancy**: This metric is unique and not redundant, focusing on the duration of test execution.
+
+### Defect Severity Distribution
+
+**Description**: Categorizes defects based on their severity levels.
+
+**Formula**:
+```
+Defect Severity Distribution = (Number of Defects in Each Category / Total Number of Defects) x 100
+```
+
+**Recommendation**: Recommended
+
+**Duplication or Redundancy**: This metric is unique and not redundant, tracking the distribution of defects by severity.
+
+### Test Case Effectiveness
+
+**Description**: Measures the effectiveness of test cases in detecting defects.
+
+**Formula**:
+```
+Test Case Effectiveness = (Number of Defects Detected by Test Cases / Total Number of Defects Detected) x 100
+```
+
+**Recommendation**: Optional
+
+**Duplication or Redundancy**: This metric is unique and not redundant, focusing on the ability of test cases to find defects.
+
+### Requirement Coverage
+
+**Description**: Ensures that all requirements are covered by test cases.
+
+**Formula**:
+```
+Requirement Coverage = (Number of Requirements Covered by Test Cases / Total Number of Requirements) x 100
+```
+
+**Recommendation**: Recommended
+
+**Duplication or Redundancy**: This metric is unique and not redundant, ensuring completeness in requirement coverage.
+
+### Defect Removal Efficiency
+
+**Description**: Measures the percentage of defects found and removed before release.
+
+**Formula**:
+```
+Defect Removal Efficiency = (Number of Defects Found and Removed / Total Number of Defects) x 100
+```
+
+**Recommendation**: Recommended
+
+**Duplication or Redundancy**: This metric is unique and not redundant, focusing on the effectiveness of defect removal.
+
+### Defect Rejection Rate
+
+**Description**: Measures the percentage of rejected defect reports.
+
+**Formula**:
+```
+Defect Rejection Rate = (Number of Rejected Defects / Total Number of Reported Defects) x 100
+```
+
+**Recommendation**: Optional
+
+**Duplication or Redundancy**: This metric is unique and not redundant, focusing on the quality of defect reports.
+
+---
+
+This should provide a comprehensive list of metrics with descriptions, formulas, and recommendations, ensuring no redundancy and providing clear, actionable insights.
 
 
 
