@@ -4,7 +4,7 @@ from openpyxl.styles import PatternFill
 import os
 import pandas as pd
 
-def parse_xml_to_excel(xml_file, tag_names):
+def parse_xml_to_excel_no_ns(xml_file, tag_names):
     try:
         parser = etree.XMLParser(ns_clean=True, recover=True)
         tree = etree.parse(xml_file, parser)
@@ -13,24 +13,32 @@ def parse_xml_to_excel(xml_file, tag_names):
         return
 
     root = tree.getroot()
+    print(f"Root tag: {root.tag}")
 
-    for tag_name in tag_names:
-        elements = root.xpath(f'//*[local-name()="{tag_name}"]')
+    def strip_prefix(tag):
+        return tag.split('}', 1)[-1] if '}' in tag else tag.split(':')[-1]
+
+    stripped_tag_names = [strip_prefix(tag) for tag in tag_names]
+
+    for stripped_tag_name in stripped_tag_names:
+        elements = [elem for elem in root.iter() if strip_prefix(elem.tag) == stripped_tag_name]
+        print(f"Found {len(elements)} elements for tag: {stripped_tag_name}")
 
         if not elements:
-            print(f"No elements found for tag: {tag_name}")
+            print(f"No elements found for tag: {stripped_tag_name}")
             continue
 
         for element in elements:
-            obs_elements = element.xpath('.//*[local-name()="obs"]')
+            obs_elements = [elem for elem in element.iter() if strip_prefix(elem.tag) == 'obs']
+            print(f"Found {len(obs_elements)} obs elements in {stripped_tag_name}")
 
             if not obs_elements:
-                print(f"No obs elements found in {tag_name}")
+                print(f"No obs elements found in {stripped_tag_name}")
                 continue
 
             wb = openpyxl.Workbook()
             ws = wb.active
-            ws.title = tag_name
+            ws.title = stripped_tag_name
 
             headers = set()
             rows = []
@@ -76,17 +84,35 @@ def parse_xml_to_excel(xml_file, tag_names):
                     if cell.value is None:
                         cell.fill = PatternFill(start_color="FFFF0000", end_color="FFFF0000", fill_type="solid")
 
-            file_name = f'{tag_name}.xlsx'
+            file_name = f'/mnt/data/{stripped_tag_name}.xlsx'
             if os.path.exists(file_name):
                 print(f"File {file_name} already exists and will be overwritten.")
             try:
                 wb.save(file_name)
                 print(f"Excel file saved: {file_name}")
             except Exception as e:
-                print(f"Failed to save Excel file for {tag_name}: {e}")
+                print(f"Failed to save Excel file for {stripped_tag_name}: {e}")
 
-# Usage example
-xml_file = 'path_to_your_xml_file.xml'  # Replace with the path to your XML file
-tag_names = ['inst', 'finan']  # Provide the list of tags here
+# New XML data without namespaces
+xml_data_finan_no_ns = '''<t2:finan>
+    <t2:obs empid="111" sty="T2m" value1="123.88" value2="null" />
+    <t2:obs empid="112" sty="T4Y" value1="4333" value2="789" />
+</t2:finan>'''
 
-parse_xml_to_excel(xml_file, tag_names)
+# Write the new XML data to a file for parsing
+xml_file_path_finan_no_ns = '/mnt/data/sample_finan_no_ns.xml'
+with open(xml_file_path_finan_no_ns, 'w') as file:
+    file.write(xml_data_finan_no_ns)
+
+# Usage example with the new XML data and different tag
+xml_file = xml_file_path_finan_no_ns  # Path to the new XML file
+tag_names = ['t2:finan']  # Tag to search for
+
+parse_xml_to_excel_no_ns(xml_file, tag_names)
+
+# Reading the generated Excel files into DataFrames
+try:
+    finan_df = pd.read_excel('/mnt/data/finan.xlsx')
+    finan_df
+except FileNotFoundError:
+    print("The Excel file was not created.")
