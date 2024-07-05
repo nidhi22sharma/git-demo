@@ -76,7 +76,7 @@ def parse_xml_to_excel(xml_file, tag_names):
                     if cell.value is None:
                         cell.fill = PatternFill(start_color="FFFF0000", end_color="FFFF0000", fill_type="solid")
 
-            file_name = f'/mnt/data/{tag_name}.xlsx'
+            file_name = f'{tag_name}.xlsx'
             if os.path.exists(file_name):
                 print(f"File {file_name} already exists and will be overwritten.")
             try:
@@ -85,34 +85,8 @@ def parse_xml_to_excel(xml_file, tag_names):
             except Exception as e:
                 print(f"Failed to save Excel file for {tag_name}: {e}")
 
-# Sample XML data
-xml_data = '''<t1:main_ag xmlns:t1="some_namespace" xmlns:t2="some_other_namespace">
-    <t1:structure>
-        <t1:inst>
-            <t1:obs id="222" typ="gg" value1="123" value2="null" />
-            <t1:obs id="221" typ="gg" value1="456" value2="789" />
-        </t1:inst>
-        <t2:finan>
-            <t1:obs empid="111" sty="T2m" value1="123.88" value2="null" />
-            <t1:obs empid="112" sty="T4Y" value1="4333" value2="789" />
-        </t2:finan>
-        <t2:emp>
-            <t1:obs empid="1" pt="G5" value1="123.88" value2="null" />
-            <t1:obs empid="2" pt="44" value1="4333" value2="789" />
-        </t2:emp>
-    </t1:structure>
-</t1:main_ag>'''
-
-# Writing XML data to a file for parsing
-with open('/mnt/data/sample.xml', 'w') as file:
-    file.write(xml_data)
-
 # Usage example
-xml_file = '/mnt/data/sample.xml'  # Path to the XML file
-tag_names = ['inst']  # Tags to search for
+xml_file = 'path_to_your_xml_file.xml'  # Replace with the path to your XML file
+tag_names = ['inst', 'finan']  # Provide the list of tags here
 
 parse_xml_to_excel(xml_file, tag_names)
-
-# Reading the generated Excel files into DataFrames
-inst_df = pd.read_excel('/mnt/data/inst.xlsx')
-inst_df
