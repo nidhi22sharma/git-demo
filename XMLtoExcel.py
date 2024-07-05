@@ -1,43 +1,28 @@
-
-
-import xml.etree.ElementTree as ET
+from lxml import etree
 import openpyxl
 from openpyxl.styles import PatternFill
 import os
+import pandas as pd
 
 def parse_xml_to_excel(xml_file, tag_names):
     try:
-        tree = ET.parse(xml_file)
-    except ET.ParseError as e:
+        parser = etree.XMLParser(ns_clean=True, recover=True)
+        tree = etree.parse(xml_file, parser)
+    except etree.XMLSyntaxError as e:
         print(f"Failed to parse XML: {e}")
         return
 
     root = tree.getroot()
 
-    def get_all_namespaces(elem):
-        namespaces = dict([
-            node for _, node in ET.iterparse(
-                elem, events=['start-ns']
-            )
-        ])
-        return namespaces
-
-    with open(xml_file, 'r') as file:
-        namespaces = get_all_namespaces(file)
-
     for tag_name in tag_names:
-        elements = []
-        for ns_prefix, ns_uri in namespaces.items():
-            elements.extend(root.findall(f'.//{{{ns_uri}}}{tag_name}'))
+        elements = root.xpath(f'//*[local-name()="{tag_name}"]')
 
         if not elements:
             print(f"No elements found for tag: {tag_name}")
             continue
 
         for element in elements:
-            obs_elements = []
-            for ns_prefix, ns_uri in namespaces.items():
-                obs_elements.extend(element.findall(f'.//{{{ns_uri}}}obs'))
+            obs_elements = element.xpath('.//*[local-name()="obs"]')
 
             if not obs_elements:
                 print(f"No obs elements found in {tag_name}")
@@ -65,19 +50,6 @@ def parse_xml_to_excel(xml_file, tag_names):
                             except ValueError:
                                 row[attr] = value
 
-                for child in obs:
-                    headers.add(child.tag)
-                    if child.text == 'null':
-                        row[child.tag] = None
-                    else:
-                        try:
-                            row[child.tag] = int(child.text)
-                        except ValueError:
-                            try:
-                                row[child.tag] = float(child.text)
-                            except ValueError:
-                                row[child.tag] = child.text
-
                 rows.append(row)
 
             headers = list(headers)
@@ -104,7 +76,7 @@ def parse_xml_to_excel(xml_file, tag_names):
                     if cell.value is None:
                         cell.fill = PatternFill(start_color="FFFF0000", end_color="FFFF0000", fill_type="solid")
 
-            file_name = f'{tag_name}.xlsx'
+            file_name = f'/mnt/data/{tag_name}.xlsx'
             if os.path.exists(file_name):
                 print(f"File {file_name} already exists and will be overwritten.")
             try:
@@ -113,8 +85,34 @@ def parse_xml_to_excel(xml_file, tag_names):
             except Exception as e:
                 print(f"Failed to save Excel file for {tag_name}: {e}")
 
+# Sample XML data
+xml_data = '''<t1:main_ag xmlns:t1="some_namespace" xmlns:t2="some_other_namespace">
+    <t1:structure>
+        <t1:inst>
+            <t1:obs id="222" typ="gg" value1="123" value2="null" />
+            <t1:obs id="221" typ="gg" value1="456" value2="789" />
+        </t1:inst>
+        <t2:finan>
+            <t1:obs empid="111" sty="T2m" value1="123.88" value2="null" />
+            <t1:obs empid="112" sty="T4Y" value1="4333" value2="789" />
+        </t2:finan>
+        <t2:emp>
+            <t1:obs empid="1" pt="G5" value1="123.88" value2="null" />
+            <t1:obs empid="2" pt="44" value1="4333" value2="789" />
+        </t2:emp>
+    </t1:structure>
+</t1:main_ag>'''
 
-xml_file = 'path_to_your_xml_file.xml'  # Provide xml path
-tag_names = ['inst', 'finan', 'emp']  # Provide list of tags here
+# Writing XML data to a file for parsing
+with open('/mnt/data/sample.xml', 'w') as file:
+    file.write(xml_data)
+
+# Usage example
+xml_file = '/mnt/data/sample.xml'  # Path to the XML file
+tag_names = ['inst']  # Tags to search for
 
 parse_xml_to_excel(xml_file, tag_names)
+
+# Reading the generated Excel files into DataFrames
+inst_df = pd.read_excel('/mnt/data/inst.xlsx')
+inst_df
