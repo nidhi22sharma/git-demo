@@ -1,3 +1,23 @@
+Definition:
+Lead Time Reduction measures the decrease in the total time taken to deliver a product feature or change from the moment it is requested until it is delivered to production. This metric focuses on improving the efficiency of the development and delivery processes.
+
+Formula:
+
+Lead Time: The total time taken from the initiation of a request to its delivery.
+Formula: Lead Time = Delivery Date - Request Initiation Date
+Lead Time Reduction Percentage: The percentage decrease in lead time over a specific period.
+Formula: Lead Time Reduction (%) = ((Previous Lead Time - Current Lead Time) / Previous Lead Time) * 100
+Example:
+
+Initial Lead Time: If the initial lead time for a feature was 20 days.
+Current Lead Time: After process improvements, the lead time is reduced to 15 days.
+Lead Time Reduction Calculation: ((20 - 15) / 20) * 100 = 25%
+This indicates a 25% reduction in lead time due to process improvements.
+
+
+
+
+***********************************************
 I want explanatory and practical test matrics - for lead time reduction 
 Lead Time Reduction Metric
 Description: Lead Time Reduction measures the decrease in the time taken to deliver a product feature or change from the moment it is requested until it is delivered to production. This metric focuses on improving efficiency in the development and delivery process to enhance overall productivity and responsiveness to market demands.
