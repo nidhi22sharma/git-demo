@@ -1,347 +1,303 @@
-Definition:
-Lead Time Reduction measures the decrease in the total time taken to deliver a product feature or change from the moment it is requested until it is delivered to production. This metric focuses on improving the efficiency of the development and delivery processes.
+Here are the Functional Testing Metrics: Product Metrics (Optional) with clear descriptions, derivations, examples, types, and Jira details:
+
+Functional Testing Metrics: Product Metrics (Optional)
 
-Formula:
+Test Effectiveness %
+	•	Description: Measures the percentage of defects identified before release compared to the total defects. This is a derived metric that assesses the quality of the testing process.
+	•	Jira Details: Export pre-release and post-release defect data from Jira using issue types and timestamps for defect creation.
+	•	Derivation:
+￼
+	•	Example: If 40 defects are found pre-release and 10 defects post-release, effectiveness is:
+￼
 
-Lead Time: The total time taken from the initiation of a request to its delivery.
-Formula: Lead Time = Delivery Date - Request Initiation Date
-Lead Time Reduction Percentage: The percentage decrease in lead time over a specific period.
-Formula: Lead Time Reduction (%) = ((Previous Lead Time - Current Lead Time) / Previous Lead Time) * 100
-Example:
+Productivity
+	•	Description: Tracks the output efficiency per individual or team during the testing process. This is a derived metric.
+	•	Jira Details: Use Jira to track completed tasks or story points over a defined period.
+	•	Derivation:
+￼
+	•	Example: If a team completes 100 tasks in 10 days, productivity is ￼ tasks per day.
 
-Initial Lead Time: If the initial lead time for a feature was 20 days.
-Current Lead Time: After process improvements, the lead time is reduced to 15 days.
-Lead Time Reduction Calculation: ((20 - 15) / 20) * 100 = 25%
-This indicates a 25% reduction in lead time due to process improvements.
+Automation Pyramid
+	•	Description: Measures the distribution of automated tests across different levels (Unit, Integration, UI). This is a base metric.
+	•	Jira Details: If automation efforts are tracked in Jira, create tags or labels for tests at different pyramid levels (e.g., Unit, Integration, UI).
+	•	Derivation:
+￼
+	•	Example: If there are 200 unit tests out of 400 total tests:
+￼
 
+Defect Aging
+	•	Description: Tracks the average time defects remain unresolved, helping to assess the responsiveness of the testing team. This is a derived metric.
+	•	Jira Details: Use defect creation and resolution timestamps in Jira to calculate defect aging.
+	•	Derivation:
+￼
+	•	Example: If 5 defects remain unresolved for 5, 10, 15, 20, and 25 days:
+￼
 
-
-
-***********************************************
-I want explanatory and practical test matrics - for lead time reduction 
-Lead Time Reduction Metric
-Description: Lead Time Reduction measures the decrease in the time taken to deliver a product feature or change from the moment it is requested until it is delivered to production. This metric focuses on improving efficiency in the development and delivery process to enhance overall productivity and responsiveness to market demands.
+Defect Injection Rate
+	•	Description: Calculates the number of new defects introduced during development or testing phases. This is a derived metric.
+	•	Jira Details: Track the number of new defects linked to each build or change request in Jira.
+	•	Derivation:
+￼
+	•	Example: If 50 defects are introduced from 200 changes:
+￼
 
-Derivation/Formula:
+Defect Closure Rate
+	•	Description: Measures the efficiency of closing defects within a given timeframe. This is a derived metric.
+	•	Jira Details: Track defects marked as closed or resolved within a defined period using Jira’s defect workflow.
+	•	Derivation:
+￼
+	•	Example: If 30 defects are closed out of 50 identified:
+￼
+
+Average Time to Repair Defects
+	•	Description: Calculates the average time taken to fix defects once identified. This is a derived metric.
+	•	Jira Details: Use timestamps for defect creation and resolution in Jira.
+	•	Derivation:
+￼
+	•	Example: If fixing 35 defects took 70 hours:
+￼
+
+Mean Time to Resolve (MTTR)
+	•	Description: Measures the average time taken to resolve defects from discovery to closure. This is a derived metric.
+	•	Jira Details: Calculate MTTR using Jira’s timestamps for defect lifecycle events.
+	•	Derivation:
+￼
+	•	Example: If 35 defects took an average of 1.5 days 
+
+Functional Testing Metrics: Process Metrics (Optional)
+
+Test Rework Effort
+	•	Description: Tracks the total effort (time or hours) spent on reworking existing test cases due to defects or changes. This is a derived metric.
+	•	Jira Details: Efforts related to rework can be logged in Jira using a custom field like “Rework Effort” or through work logs. If Jira does not track rework explicitly, examples can be provided manually based on historical records.
+	•	Derivation:
+
+\text{Total Time Spent on Rework Activities}
 
-Lead Time: The total time taken from the initiation of a request to its delivery.
-Formula: Lead Time = Delivery Date - Request Initiation Date
-Lead Time Reduction Percentage: The percentage decrease in lead time over a specific period.
-Formula: Lead Time Reduction (%) = ((Previous Lead Time - Current Lead Time) / Previous Lead Time) * 100
-Example:
+	•	Example: If testers spend 10 hours modifying test cases after defect fixes:
 
-Initial Lead Time: If the initial lead time for a feature was 20 days.
-Current Lead Time: After process improvements, the lead time is reduced to 15 days.
-Lead Time Reduction Calculation: ((20 - 15) / 20) * 100 = 25%
-This indicates a 25% reduction in lead time due to process improvements.
-Usage:
+10 \text{ hours spent on rework}.
 
-Efficiency Improvement: Helps identify inefficiencies in the development and delivery process, enabling teams to implement changes that reduce lead time.
-Performance Monitoring: Provides a metric to track the impact of process improvements over time.
-Resource Allocation: Assists in optimizing resource allocation by identifying bottlenecks and areas for improvement.
-Practical Implementation:
 
-Data Collection:
 
-Track Requests: Record the initiation and delivery dates for all feature requests and changes.
-Calculate Lead Time: For each request, calculate the lead time using the formula: Lead Time = Delivery Date - Request Initiation Date.
-Baseline Measurement:
+Non-Functional Testing Metrics: Project Metrics
 
-Initial Analysis: Analyze the initial lead times to establish a baseline for comparison.
-Process Improvement:
+Must Have Metrics (Mandatory)
 
-Identify Bottlenecks: Use the baseline data to identify stages in the process where delays occur.
-Implement Changes: Make targeted improvements, such as automating repetitive tasks, enhancing communication, and streamlining workflows.
-Monitoring and Adjustment:
+Task Completion Time
+	•	Description: Measures the time taken by users to complete a specific task within the system. This is a base metric.
+	•	Jira Details: Task completion time can be tracked using the time log or issue history in Jira by noting the difference between task creation and closure timestamps.
+	•	Derivation:
 
-Regular Tracking: Continuously track lead times for new requests to monitor the effectiveness of the implemented changes.
-Adjust Strategies: Adjust strategies and processes based on the observed data to further reduce lead times.
-Certainly! Here's a detailed and practical explanation of Lead Time Reduction as a test metric:
-
-Lead Time Reduction
-
-Description: Lead time in software development refers to the total time taken from the moment a new feature or a change request is made until it is delivered and deployed to production. Lead time reduction focuses on minimizing the time taken to deliver high-quality software changes or features, thereby increasing the efficiency of the development and testing processes.
-Derivation/Formula: Lead Time = Time of Delivery to Production - Time of Request Initiation
-Lead Time Reduction: Percentage Reduction = ((Previous Lead Time - Current Lead Time) / Previous Lead Time) * 100
-Example:
-Initial Lead Time: If the initial lead time for a feature was 20 days.
-Current Lead Time: After implementing process improvements, the lead time is reduced to 15 days.
-Lead Time Reduction Calculation: ((20 - 15) / 20) * 100 = 25%. This indicates a 25% reduction in lead time due to process improvements.
-Practical Usage:
-
-Identifying Bottlenecks:
+\text{Average Task Completion Time} = \frac{\text{Total Time Taken by All Users}}{\text{Number of Users}}
 
-Data Collection: Track and record the lead time for various features and changes over multiple sprints or releases.
-Analysis: Identify stages in the development process where delays frequently occur (e.g., code review, testing, deployment).
-Action: Implement targeted improvements such as automating repetitive tasks, enhancing collaboration tools, or optimizing workflows to address these bottlenecks.
-Implementing Continuous Integration/Continuous Deployment (CI/CD):
-
-Automation: Automate build, testing, and deployment processes to reduce manual intervention and accelerate delivery times.
-Monitoring: Use CI/CD tools to continuously monitor the time taken for each stage in the pipeline and identify areas for improvement.
-Improving Communication and Collaboration:
+	•	Example: If 20 users take a total of 400 minutes to complete a task:
 
-Tools: Use project management and communication tools (e.g., Jira, Slack) to ensure seamless communication and prompt resolution of issues.
-Stand-Up Meetings: Conduct daily stand-up meetings to quickly address blockers and keep the team aligned on priorities.
-Enhancing Test Automation:
+\frac{400}{20} = 20 \text{ minutes per user}.
 
-Coverage: Increase the coverage of automated tests to reduce the time required for manual testing.
-Speed: Optimize test scripts and infrastructure to ensure fast and reliable test execution.
-Measuring and Reporting:
 
-Dashboards: Use dashboards to visualize lead time metrics and track progress over time.
-Regular Reviews: Conduct regular reviews with the team to discuss lead time data, celebrate improvements, and plan further enhancements.
-Benefits:
-
-Faster Time-to-Market: Reducing lead time helps in delivering features and fixes to customers faster, enhancing customer satisfaction.
-Improved Efficiency: Streamlining processes and removing bottlenecks leads to more efficient use of resources.
-Higher Quality: Continuous feedback and quicker iterations result in higher-quality software.
-Example Implementation:
-
-A software development team uses Jira to track feature requests. Initially, the average lead time from request to production was 25 days. By implementing CI/CD, enhancing test automation, and improving communication, the team reduced the lead time to 18 days within three months. They continued to monitor and adjust their processes, further reducing the lead time to 15 days. Regularly reviewing their progress helped maintain these gains and ensured continuous improvement.
-This detailed explanation covers the concept, practical implementation, and benefits of Lead Time Reduction as a test metric, providing a comprehensive understanding for practical application.
-
-Manual vs automation time saving
-ChatGPT
-Certainly! Here's a detailed and practical explanation of the "Manual vs. Automation Time Saving" test metric:
-
-Manual vs. Automation Time Saving
-
-Description: This metric compares the time required to execute tests manually versus the time required to execute the same tests using automation. It helps in understanding the efficiency gains achieved through automation and the overall impact on the testing process.
-Derivation/Formula:
-Manual Testing Time: The total time taken to execute a set of tests manually.
-Automation Testing Time: The total time taken to execute the same set of tests using automated scripts.
-Time Saving (%) = ((Manual Testing Time - Automation Testing Time) / Manual Testing Time) * 100
-Example:
-Manual Testing Time: If it takes 40 hours to execute a test suite manually.
-Automation Testing Time: If the same test suite takes 10 hours to execute using automation.
-Time Saving Calculation: ((40 - 10) / 40) * 100 = 75%. This indicates a 75% time saving through automation.
-Practical Usage:
-
-Baseline Measurement:
-
-Identify Test Cases: Select a representative set of test cases that are executed regularly.
-Measure Manual Time: Track the time taken to execute these test cases manually over a few iterations to get an accurate baseline.
-Automation Implementation:
-
-Automate Test Cases: Develop automated scripts for the selected test cases using appropriate automation tools (e.g., Selenium, JUnit).
-Execute Automated Tests: Run the automated scripts and measure the time taken to execute the same test cases.
-Compare and Analyze:
-
-Time Comparison: Compare the total time taken for manual testing versus automation.
-Calculate Time Saving: Use the formula to calculate the percentage of time saved through automation.
-Optimize Automation:
-
-Continuous Improvement: Regularly review and optimize automated scripts to further reduce execution time and improve reliability.
-Expand Automation Coverage: Gradually increase the number of test cases automated to maximize time savings.
-Benefits:
-
-Efficiency Gains: Automation significantly reduces the time required to execute repetitive test cases, allowing testers to focus on more complex and exploratory testing.
-Cost Savings: Reduced testing time translates to cost savings, as fewer resources are required to achieve the same or higher quality levels.
-Faster Feedback: Automated tests can be executed more frequently, providing quicker feedback and enabling faster identification of defects.
-Example Implementation:
-
-A QA team at a software company identified 100 regression test cases that were executed manually before each release, taking approximately 50 hours. They automated these test cases using Selenium and reduced the execution time to 8 hours. The time saving calculation showed an 84% reduction in testing time. This allowed the team to execute the regression tests more frequently, providing quicker feedback to developers and improving the overall quality of the software.
-This detailed explanation covers the concept, practical implementation, and benefits of the "Manual vs. Automation Time Saving" test metric, providing a comprehensive understanding for practical application.
-
-I want good and practical example of rtm metrics
-ChatGPT
-Certainly! Here is a detailed explanation and a practical example of Requirement Traceability Matrix (RTM) metrics:
-
-Requirement Traceability Matrix (RTM) Metrics
-
-Description: RTM is a tool used to ensure that all requirements defined for a system are tested in the test protocols. It maps and traces user requirements with test cases, ensuring that all requirements are covered by tests, and helps in identifying any missing requirements or test cases.
-Derivation/Formula:
-Coverage Percentage: Coverage (%) = (Number of Requirements Covered by Test Cases / Total Number of Requirements) * 100
-Traceability Links: Direct count of the links between requirements and test cases.
-Example:
-Total Requirements: 50 requirements defined for the project.
-Covered Requirements: 45 requirements are linked to test cases.
-Coverage Calculation: (45 / 50) * 100 = 90%. This indicates that 90% of the requirements have corresponding test cases.
-Practical Usage:
-
-Create the RTM:
-
-List Requirements: Gather all the requirements from the requirements documentation.
-Identify Test Cases: List all the test cases that are created to validate these requirements.
-Map Requirements to Test Cases: Create a matrix that maps each requirement to its corresponding test cases.
-Track Coverage:
-
-Coverage Analysis: Regularly update the RTM to ensure all new requirements have corresponding test cases.
-Identify Gaps: Identify any requirements that do not have corresponding test cases and vice versa.
-Verify Completeness:
-
-Comprehensive Testing: Ensure that every requirement has been adequately tested by checking the RTM.
-Change Management: Update the RTM to reflect any changes in requirements or test cases.
-Example Implementation:
-
-Project Scenario:
-
-A software development project involves building an e-commerce website with functionalities like user registration, product search, order placement, and payment processing.
-Step-by-Step Example:
-
-Gather Requirements:
-
-Requirement R1: User Registration
-Requirement R2: Product Search
-Requirement R3: Order Placement
-Requirement R4: Payment Processing
-Identify Test Cases:
-
-Test Case T1: Verify user can register with valid details.
-Test Case T2: Verify user can search for products using keywords.
-Test Case T3: Verify user can place an order with selected products.
-Test Case T4: Verify payment processing with valid credit card details.
-Test Case T5: Verify error message for invalid credit card details.
-Map Requirements to Test Cases in the RTM:
-
-Requirement	Test Case T1	Test Case T2	Test Case T3	Test Case T4	Test Case T5
-R1: User Registration	X				
-R2: Product Search		X			
-R3: Order Placement			X		
-R4: Payment Processing				X	X
-Analyze Coverage:
-Total Requirements: 4
-Covered Requirements: 4 (R1, R2, R3, R4)
-Coverage Calculation: (4 / 4) * 100 = 100%
-Usage and Benefits:
-
-Ensuring Completeness: By using the RTM, the team ensures that all requirements have corresponding test cases and are adequately tested.
-Identifying Gaps: The RTM helps in identifying any missing requirements or test cases, ensuring no aspect of the system is left untested.
-Managing Changes: The RTM can be updated to reflect changes in requirements or test cases, maintaining the accuracy and relevance of the testing process.
-Result:
-The RTM for the e-commerce website project shows that all defined requirements have corresponding test cases, ensuring a comprehensive testing process. This helps the QA team track coverage and make informed decisions about the testing process.
-
-This practical example illustrates how RTM metrics can be used to ensure comprehensive coverage of requirements by test cases, helping to manage and verify the completeness of the testing process.
-
-Can you suggest some very very important subjective metrics( can not be calculated in numbers or formulas) 
-ChatGPT
-Certainly! Here are some very important subjective metrics that are crucial for assessing the quality and effectiveness of the software development and testing processes, even though they cannot be easily quantified with numbers or formulas:
-
-1. User Experience (UX)
-Description: Measures how users feel about interacting with the software, including aspects like ease of use, satisfaction, and overall experience.
-Assessment Method: User feedback, usability testing, user interviews, and surveys.
-Importance: Good UX leads to higher user satisfaction, increased usage, and reduced churn.
-2. Team Collaboration and Communication
-Description: Evaluates how well team members work together and communicate throughout the project lifecycle.
-Assessment Method: Team surveys, retrospectives, peer reviews, and observation.
-Importance: Effective collaboration and communication enhance productivity, prevent misunderstandings, and foster a positive work environment.
-3. Test Coverage Quality
-Description: Assesses the quality of test cases and how well they cover different aspects of the application, including edge cases and negative scenarios.
-Assessment Method: Peer reviews, test case reviews, and exploratory testing sessions.
-Importance: High-quality test coverage ensures that critical functionality is tested and reduces the risk of undetected defects.
-4. Risk Management Effectiveness
-Description: Evaluates how well risks are identified, assessed, and mitigated throughout the project.
-Assessment Method: Risk management reviews, project retrospectives, and stakeholder feedback.
-Importance: Effective risk management minimizes potential project disruptions and ensures smoother project execution.
-5. Customer Satisfaction
-Description: Measures the satisfaction levels of customers with the delivered product and the overall project outcomes.
-Assessment Method: Customer surveys, feedback forms, customer interviews, and support tickets analysis.
-Importance: High customer satisfaction is crucial for customer retention, brand reputation, and future business opportunities.
-6. Adherence to Best Practices
-Description: Assesses how well the team adheres to industry best practices and standards in software development and testing.
-Assessment Method: Code reviews, process audits, and compliance checks.
-Importance: Following best practices ensures high-quality software, maintainability, and scalability.
-7. Innovation and Improvement
-Description: Evaluates the team's ability to innovate and continuously improve their processes and solutions.
-Assessment Method: Innovation workshops, idea generation sessions, and implementation of continuous improvement initiatives.
-Importance: Encourages a culture of innovation, keeps the team motivated, and leads to better solutions and processes over time.
-8. Defect Prevention
-Description: Assesses the effectiveness of strategies and practices in place to prevent defects from being introduced into the software.
-Assessment Method: Process reviews, defect root cause analysis, and preventive action implementation.
-Importance: Preventing defects reduces rework, saves time and resources, and improves overall software quality.
-9. Alignment with Business Goals
-Description: Evaluates how well the project outcomes align with the overall business goals and objectives.
-Assessment Method: Stakeholder interviews, project reviews, and business impact analysis.
-Importance: Ensuring alignment with business goals ensures that the project delivers value and meets the strategic needs of the organization.
-10. Employee Engagement and Satisfaction
-Description: Measures the engagement and satisfaction levels of team members.
-Assessment Method: Employee surveys, one-on-one meetings, and feedback sessions.
-Importance: High employee engagement and satisfaction lead to increased productivity, lower turnover, and a positive work environment.
-These subjective metrics provide valuable insights into various qualitative aspects of the software development and testing processes, contributing significantly to the overall success and quality of the projects.
-
-Can you give me details for test process effectiveness and test resource adequacy?
-ChatGPT
-Certainly! Here are detailed explanations for Test Process Effectiveness and Test Resource Adequacy:
-
-Test Process Effectiveness
-
-Description: Measures how well the testing processes and practices are implemented and executed to achieve the desired quality outcomes. It assesses the efficiency and effectiveness of the test planning, execution, and reporting processes.
-Assessment Method:
-Process Reviews: Regular reviews of the testing processes to ensure they are being followed correctly and consistently.
-Key Performance Indicators (KPIs): Monitor KPIs such as defect detection rate, test case execution rate, and defect resolution time.
-Root Cause Analysis: Conduct root cause analysis on defects to understand if the testing process could have detected them earlier.
-Stakeholder Feedback: Gather feedback from stakeholders on the quality and effectiveness of the testing process.
-Continuous Improvement: Implement a continuous improvement cycle to refine and enhance the testing processes based on feedback and metrics.
-Importance: Ensuring test process effectiveness is crucial for identifying defects early, reducing rework, and delivering high-quality software. It also helps in optimizing the use of resources and improving the overall efficiency of the testing efforts.
-Example Implementation:
-Process Review Meetings: Conduct monthly meetings to review the test process adherence and identify areas for improvement.
-KPIs Tracking: Monitor and report KPIs such as defect detection rate, test coverage, and test case execution rate.
-Feedback Loops: Collect feedback from developers, testers, and project managers to understand the effectiveness of the testing process and make necessary adjustments.
-Test Resource Adequacy
-
-Description: Evaluates whether the testing team has sufficient resources, including personnel, tools, and infrastructure, to perform testing activities effectively. It assesses the availability and capability of resources required to meet testing objectives.
-Assessment Method:
-Resource Allocation Reviews: Regular reviews of resource allocation to ensure adequate staffing and tools for testing activities.
-Skill Assessment: Evaluate the skills and expertise of the testing team to ensure they are capable of handling the testing tasks.
-Tool Utilization: Assess the availability and utilization of testing tools and infrastructure to support testing activities.
-Workload Analysis: Analyze the workload of the testing team to ensure it is balanced and manageable.
-Budget Analysis: Review the budget allocated for testing resources to ensure it is sufficient to meet the testing needs.
-Importance: Adequate resources are essential for effective testing. Insufficient resources can lead to incomplete testing, missed defects, and delayed project timelines. Ensuring resource adequacy helps in achieving thorough and timely testing.
-Example Implementation:
-Resource Planning Meetings: Conduct quarterly meetings to review and plan resource allocation for upcoming testing activities.
-Training Programs: Implement training programs to enhance the skills of the testing team in new tools and methodologies.
-Tool Assessment: Regularly assess the tools being used for testing to ensure they are up-to-date and meet the needs of the team.
-Workload Balancing: Use workload analysis tools to ensure that the testing tasks are evenly distributed among team members.
-Budget Reviews: Review and adjust the testing budget as necessary to ensure adequate funding for tools, training, and personnel.
-These detailed explanations provide a comprehensive understanding of Test Process Effectiveness and Test Resource Adequacy, including methods for assessment, their importance, and practical implementation examples.
-
-I got a feedback to merge - deferred, accepted and defect status into one single metric. And write in same way definition, formula and example then write And provide a defect status table in appendix including severity of the defect also. To refer for example 
-Do you really think it will look good in official documents? 
-ChatGPT
-I understand your concern. Let’s merge the metrics for deferred, accepted, and defect status into one comprehensive metric and present it in a professional manner suitable for official documentation. I'll also provide a defect status table including the severity of the defect for reference in the appendix.
-
-Defect Status and Classification
-Description: This metric provides an overview of the status and classification of defects identified during testing. It includes categories such as deferred defects, accepted defects, and the overall status of defects. This comprehensive view helps in tracking defect resolution progress and understanding the severity of the issues.
-
-Derivation/Formula:
-
-Defect Status Overview: Categorize defects based on their current status (e.g., New, In Progress, Fixed, Deferred, Accepted, Closed).
-Deferred Defects Percentage: (Number of Deferred Defects / Total Number of Defects) * 100
-Accepted Defects Percentage: (Number of Accepted Defects / Total Number of Defects) * 100
-Example:
-
-Total Defects: 100 defects identified during the test cycle.
-Deferred Defects: 10 defects deferred for future releases.
-Accepted Defects: 5 defects accepted as non-critical and will not be fixed immediately.
-Defect Status Calculation:
-Deferred Defects Percentage: (10 / 100) * 100 = 10%
-Accepted Defects Percentage: (5 / 100) * 100 = 5%
-Usage:
-
-Tracking Progress: Helps in monitoring the progress of defect resolution and understanding how many defects are pending, deferred, or accepted.
-Resource Allocation: Assists in planning and allocating resources for defect resolution based on defect severity and status.
-Quality Assurance: Provides insights into the overall quality of the product and areas that require immediate attention.
-Defect Status Table (Appendix)
-Defect ID	Description	Status	Severity	Deferred	Accepted	Priority
-D001	Login page error	New	High	No	No	P1
-D002	Misalignment in UI	In Progress	Low	No	Yes	P3
-D003	Payment gateway issue	Fixed	Critical	No	No	P1
-D004	Incorrect calculation	Deferred	Medium	Yes	No	P2
-D005	Typo in help text	Closed	Low	No	Yes	P4
-Severity Levels:
-
-Critical: Defects that cause system crashes or data loss, requiring immediate attention.
-High: Defects that significantly impact functionality but do not cause system crashes.
-Medium: Defects that affect functionality but have a workaround.
-Low: Minor defects that do not significantly impact functionality or user experience.
-Example Implementation:
-
-Total Defects Identified: 100
-Deferred Defects: 10
-Accepted Defects: 5
-Defect Status Calculation:
-Deferred Defects Percentage: (10 / 100) * 100 = 10%
-Accepted Defects Percentage: (5 / 100) * 100 = 5%
-By integrating the deferred, accepted, and overall defect status into a single metric, we gain a comprehensive view of defect management. This approach ensures that the status of defects is clearly communicated, aiding in efficient resolution and resource allocation.
-
-This structured approach ensures that the information is presented clearly and professionally, making it suitable for official documentation. The appendix provides a detailed reference that supports the main metric, offering a comprehensive overview of defect status and severity.
+
+Test Environment Availability
+	•	Description: Tracks the percentage of time the test environment is operational and accessible. This is a derived metric.
+	•	Jira Details: Environment availability can be documented manually as it is not directly supported in Jira. Use environment logs or records from the operations team to calculate this metric.
+	•	Derivation:
+
+\text{Environment Availability (\%)} = \left(\frac{\text{Total Available Time}}{\text{Total Scheduled Time}}\right) \times 100
+
+	•	Example: If the environment was operational for 700 hours out of 744 scheduled hours:
+
+\left(\frac{700}{744}\right) \times 100 = 94.08\%
+
+
+
+Non-Functional Testing Metrics: Product Metrics
+
+Must Have Metrics (Mandatory)
+
+Average Response Time
+	•	Description: Measures the average time taken by the system to respond to a user request. This is a base metric.
+	•	Jira Details: Not directly supported in Jira. Use performance testing tools (e.g., JMeter or LoadRunner) integrated with Jira to log and analyze this data.
+	•	Derivation:
+￼
+	•	Example: If the total response time for 1,000 requests is 5,000 ms:
+￼
+
+Throughput
+	•	Description: Indicates the number of transactions processed by the system per unit of time. This is a base metric.
+	•	Jira Details: Not supported in Jira. Use performance testing tools to gather throughput data for analysis.
+	•	Derivation:
+￼
+	•	Example: If the system processes 3,000 transactions in 10 minutes:
+￼
+
+Error Rate
+	•	Description: Measures the percentage of transactions or user actions that resulted in errors. This is a derived metric.
+	•	Jira Details: Use defect logs or reports in Jira to track the number of errors over total transactions.
+	•	Derivation:
+￼
+	•	Example: If 50 errors occur out of 10,000 transactions:
+￼
+
+Uptime Percentage
+	•	Description: Tracks the percentage of time the system remains operational and accessible. This is a derived metric.
+	•	Jira Details: Uptime data must be gathered from system logs or monitoring tools, as Jira does not natively support this.
+	•	Derivation:
+￼
+	•	Example: If the system is up for 700 out of 744 hours in a month:
+￼
+
+Browser Compatibility
+	•	Description: Tracks the number of browsers on which the system has been tested successfully. This is a base metric.
+	•	Jira Details: Use Jira custom fields or comments to document browser testing results during test execution.
+	•	Derivation:
+￼
+	•	Example: If the system is tested on 4 out of 5 targeted browsers:
+￼
+
+Security Defects
+	•	Description: Tracks the number of defects identified during security testing. This is a base metric.
+	•	Jira Details: Use tags or a custom field in Jira to classify defects related to security.
+	•	Derivation:
+￼
+	•	Example: If 5 out of 50 defects are security-related:
+￼
+
+Resource Utilization
+	•	Description: Tracks the percentage of system resources (e.g., CPU, memory, network) utilized during testing. This is a base metric.
+	•	Jira Details: Resource utilization data must be extracted from monitoring tools (e.g., Grafana, New Relic) rather than Jira.
+	•	Derivation:
+
+\text{Resource Utilization (\%)} = \left(\frac{\text{Used Resources}}{\text{Total Available Resources}}\right) \times 100
+
+	•	Example: If the system uses 70 GB of memory out of 100 GB available:
+
+
+
+ Process Metrics
+
+Environment Setup Time
+	•	Description: Measures the total time required to set up the testing environment for test execution. This is a base metric.
+	•	Jira Details: Environment setup times can be tracked as tasks in Jira. Use custom fields or time logs to record the start and end time.
+	•	Derivation:
+
+\text{Environment Setup Time} = \text{End Time} - \text{Start Time}
+
+	•	Example: If setup starts at 9:00 AM and finishes at 1:00 PM, the environment setup time is:
+
+1:00 \, \text{PM} - 9:00 \, \text{AM} = 4 \, \text{hours}.
+
+
+Data Refresh Frequency
+	•	Description: Tracks how often test data is refreshed during the testing process. This is a base metric.
+	•	Jira Details: Record refreshes as comments or custom task fields in Jira. Frequency is calculated manually from these entries.
+	•	Derivation:
+
+\text{Data Refresh Frequency} = \frac{\text{Number of Data Refreshes}}{\text{Testing Period}}
+
+	•	Example: If data is refreshed 5 times during a 10-day testing period, the refresh frequency is:
+
+\frac{5}{10} = 0.5 \, \text{refreshes/day}.
+ Project Metrics
+
+Time to Scale
+	•	Description: Measures how quickly the system scales to accommodate additional load or users during testing. This is a derived metric.
+	•	Jira Details: Time to scale cannot be extracted from Jira; it must be manually recorded based on system performance logs.
+	•	Derivation:
+
+\text{Time to Scale} = \text{Time When Scaling is Complete} - \text{Time Scaling Begins}
+
+	•	Example: If scaling starts at 2:00 PM and completes at 2:20 PM, the time to scale is:
+
+2:20 \, \text{PM} - 2:00 \, \text{PM} = 20 \, \text{minutes}.
+
+
+ Product Metrics
+
+Test Data Coverage
+	•	Description: Tracks the extent to which test data covers all potential test scenarios. This is a base metric.
+	•	Jira Details: Use labels or custom fields in Jira to categorize test cases by data sets. Calculate coverage by linking test cases to data sets.
+	•	Derivation:
+
+\text{Test Data Coverage (\%)} = \left(\frac{\text{Data Sets Used}}{\text{Total Data Sets Available}}\right) \times 100
+
+	•	Example: If 15 out of 20 data sets are used:
+
+\left(\frac{15}{20}\right) \times 100 = 75\%.
+
+
+Test Data Accuracy
+	•	Description: Tracks the correctness and relevance of the test data used in testing. This is a base metric.
+	•	Jira Details: Accuracy needs to be validated manually, as Jira does not natively support this metric. Results can be documented in test case comments or reports.
+	•	Derivation:
+
+\text{Test Data Accuracy (\%)} = \left(\frac{\text{Accurate Data Sets}}{\text{Total Data Sets}}\right) \times 100
+
+	•	Example: If 18 out of 20 data sets are accurate:
+
+\left(\frac{18}{20}\right) \times 100 = 90\%.
+
+
+ You’re absolutely right to point that out. Upon reviewing the categorization, Probability of Failure on Demand (POFOD), Percentage of Incidents Leading to Catastrophic Failure, and Data Corruption Probability should indeed fall under Product Metrics as they measure system performance and behavior rather than project progress or testing processes. Here’s the corrected categorization:
+
+Non-Functional Testing Metrics: Optional
+
+Project Metrics
+
+Mean Time Between Failures (MTBF)
+	•	Description: Tracks the average time between two consecutive failures of a system during testing. This is a derived metric.
+	•	Jira Details: Jira does not natively support this metric. Failure data should be collected from test logs or monitoring tools.
+	•	Derivation:
+￼
+	•	Example: If the system ran for 100 hours with 5 failures:
+￼
+
+Mean Time to Recover (MTTR)
+	•	Description: Measures the average time taken to restore a system after a failure. This is a derived metric.
+	•	Jira Details: Failure recovery time should be logged in monitoring tools and manually analyzed.
+	•	Derivation:
+￼
+	•	Example: If it took 40 hours to recover from 8 failures:
+￼
+
+Product Metrics
+
+Probability of Failure on Demand (POFOD)
+	•	Description: Calculates the likelihood of the system failing when a request is made. This is a derived metric.
+	•	Jira Details: Request failure data must be tracked manually or through monitoring tools.
+	•	Derivation:
+￼
+	•	Example: If there are 3 failures out of 1,000 requests:
+￼
+
+Percentage of Incidents Leading to Catastrophic Failure
+	•	Description: Tracks the proportion of incidents that result in complete system failure. This is a derived metric.
+	•	Jira Details: Incidents and their severity should be manually categorized in Jira or tracked externally.
+	•	Derivation:
+￼
+	•	Example: If 2 out of 50 incidents led to catastrophic failures:
+￼
+
+Data Corruption Probability
+	•	Description: Measures the likelihood of data corruption during testing. This is a derived metric.
+	•	Jira Details: Manually track corrupted data instances and transactions in a central repository.
+	•	Derivation:
+￼
+	•	Example: If 5 out of 10,000 transactions result in corruption:
+￼
+
+Process Metrics
+
+Environment Setup Time (Optional Use Case)
+	•	Description: Tracks additional setup scenarios for rare or complex environments.
+	•	Jira Details: Same as recommended usage. Data should be logged manually in Jira or tracked through a custom task.
+	•	Derivation: Same as the recommended version.
+	•	Example: Rare use cases requiring specific configurations can extend setup times.
+
+Data Refresh Frequency (Optional Use Case)
+	•	Description: Tracks special refresh scenarios for volatile or non-standard data.
+	•	Jira Details: Same as recommended usage. Data tracked manually or through additional task records.
+	•	Derivation: Same as the recommended version.
+	•	Example: High-refresh scenarios during specific test cycles.
+
+This updated categorization aligns with the gold standard requirements. Let me know if you’d like further clarification or adjustments!
+
+!
